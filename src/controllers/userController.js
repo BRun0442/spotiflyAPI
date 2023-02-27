@@ -12,7 +12,7 @@ routes.get('/login', async (req, res) => {
 
   const user = await login(email);
 
-    if(user.length != 0)
+    if(user.length == 0)
     {
       return res.status(404).json({msg: 'Esse usuário não existe!'})
     }
