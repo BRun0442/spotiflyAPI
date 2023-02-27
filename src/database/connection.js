@@ -5,16 +5,16 @@ const connection = async () =>
   try {
   // const connection = await mysql2.createConnection("http://localhost:3306");
   const connection = await mysql2.createConnection({
-    // host: process.env.db_host,
-    // port: process.env.db_port,
-    // user: process.env.db_user,
-    // password: process.env.db_pwd,
-    // database: process.env.db_name
-    host: 'localhost',
-    port: 3306,
-    user: 'root',
-    password: '',
-    database: 'rh'
+    host: process.env.db_host,
+    port: process.env.db_port,
+    user: process.env.db_user,
+    password: process.env.db_pwd,
+    database: process.env.db_name
+    // host: 'localhost',
+    // port: 3306,
+    // user: 'root',
+    // password: '',
+    // database: 'rh'
   });
 
   return connection;
