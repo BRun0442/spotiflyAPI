@@ -1,18 +1,20 @@
 import express from 'express';
+import cors from 'cors'
+import routes from './src/routes.js';
 
 const api = express();
 const port = process.env.port || 3333;
 
   //Convert json received into an js object
-  app.use(express.json())
+  api.use(express.json())
 
   //Using this the API accept preflights
-  app.use(cors())
+  api.use(cors())
 
-  app.use("/", routes)
+  api.use("/", routes)
 
 api.listen(port, () => 
-  console.log("API running on port:", port)
+  console.log("api running on port:", port)
 );
 
 export default api;

@@ -6,12 +6,16 @@
   "repository": "https://github.com/BRun0442/Projeto-RH.git",
   "author": "BRun0442 <brunoosmar442@gmail.com>",
   "license": "MIT",
-  "type":"module",
+  "type": "module",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.18.2",
     "mysql2": "^3.1.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
+  },
+  "scripts": {
+    "start": "nodemon index.js"
   }
 }

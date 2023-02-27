@@ -3,13 +3,19 @@ import database from '../database/connection.js';
 async function login(email)
 {
   const connection = await database.connection();
-  const sql = "SELECT * from user WHERE email=?";
   
-  const userData = await connection.query(sql, [email]);
-  connection.end();
+  try {
+    const sql = "SELECT * from user WHERE email=?";
 
-  //Index 0 to prevent conflicts
-  return userData[0];
+    const userData = await connection.query(sql, [email]);
+    connection.end();
+  
+    console.log(userData[0])
+    //Index 0 to prevent conflicts
+    return userData[0];
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 // async function getUserDataByEmail()
@@ -18,4 +24,4 @@ async function login(email)
 //   const sql = 'SELECT * from user '
 // }
 
-export default { login };
+export default login;
