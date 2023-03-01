@@ -4,12 +4,12 @@ const connection = async () =>
 {
   try {
   const connection = await mysql2.createConnection({
-    host: process.env.HOST,
-    port: process.env.PORT,
-    user: process.env.USER,
-    password: process.PASSWORD,
-    database: process.DB,
-    uri: process.env.URI
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    user: process.env.DB_USER,
+    password: process.DB_PASSWORD,
+    database: process.DB_NAME,
+    uri: process.env.DB_URI
   });
 
   return connection;
