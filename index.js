@@ -17,7 +17,7 @@ const port = process.env.API_PORT || 3333;
   api.use("/", routes)
 
 api.listen(port, () => 
-  console.log("api running on port:", port)
+  console.log("api running!")
 );
 
 export default api;
