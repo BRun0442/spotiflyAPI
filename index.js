@@ -5,6 +5,11 @@ import routes from './src/routes.js';
 
 config()
 
+var corsOptions = {
+  origin: 'http://localhost',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
+
 const api = express();
 const port = process.env.API_PORT || 3333;
 
@@ -12,7 +17,7 @@ const port = process.env.API_PORT || 3333;
   api.use(express.json())
 
   //Using this the API accept preflights
-  api.use(cors())
+  api.use('*', cors(corsOptions))
 
   api.use("/", routes)
 
