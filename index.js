@@ -6,7 +6,7 @@ import routes from './src/routes.js';
 config()
 
 var corsOptions = {
-  origin: 'http://localhost',
+  origin: 'http://localhost:3000',
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 
