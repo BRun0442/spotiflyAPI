@@ -1,12 +1,12 @@
-import dotenv from 'dotenv'
+import { config } from 'dotenv'
 import express from 'express';
 import cors from 'cors'
 import routes from './src/routes.js';
 
-dotenv.config()
+config()
 
 const api = express();
-const port = process.env.API_PORT || 3333;
+const port = process.env.PORT || 3333;
 
   //Convert json received into an js object
   api.use(express.json())
