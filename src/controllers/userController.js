@@ -3,7 +3,7 @@ import login from "../services/userService.js";
 
 const routes = express.Router();
 
-routes.get('/login', async (req, res) => {
+routes.post('/login', async (req, res) => {
   const { email, password } = req.body;
 
   if (!email || !password) {
