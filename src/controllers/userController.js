@@ -1,7 +1,13 @@
 import express from "express";
-import login from "../services/userService.js";
+import { login, signUp } from "../services/userService.js";
 
 const routes = express.Router();
+
+routes.post('/signUp', async (req, res) => {
+  const { name, email, password, birthday } = req.body;
+
+
+})
 
 routes.post('/login', async (req, res) => {
   const { email, password } = req.body;
@@ -28,5 +34,7 @@ routes.post('/login', async (req, res) => {
     userId: user.id
   })
 })
+
+routes.post('/cadastro')
 
 export default routes;

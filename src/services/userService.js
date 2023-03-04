@@ -1,5 +1,19 @@
 import database from '../database/connection.js';
 
+async function signUp(name, email, password, birthday)
+{
+  const connection = await database.connection();
+  
+  try {
+    const data = [name, email, password, birthday]
+    const sql = `INSERT into user(name, email, password, birthday) 
+                    values(?, ?, ?, ?)`;
+    
+    connection.query(sql, [data ])
+  } catch (error) {
+    // console.log(error)
+  }
+}
 async function login(email)
 {
   const connection = await database.connection();
@@ -23,4 +37,4 @@ async function login(email)
 //   const sql = 'SELECT * from user '
 // }
 
-export default login;
+export { login, signUp};
