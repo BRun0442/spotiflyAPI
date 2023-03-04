@@ -7,9 +7,9 @@ create table user(
 	id int primary key auto_increment,
     password varchar(25) not null,
     email varchar(200) not null,
-    user_name varchar(100) not null,
-    user_birthday date not null,
-	user_permission enum('office', 'customer', 'employeer') not null
+    name varchar(100) not null,
+    birthday date not null,
+	permission enum('office', 'customer', 'employeer') not null
 );
 
 create table employeer(
@@ -38,6 +38,6 @@ create table employeer_gets_calls(
    # constraint fk_id_customer foreign key(fk_id_customer) references customer(id_customer)
 );
 
-insert into user(user_name, user_birthday, user_permission, password, email) values("Osmar", "20040813", "employeer", "123", "email@teste");
+insert into user(name, birthday, permission, password, email) values("Osmar", "20040813", "employeer", "123", "email@teste");
  
  select * from user;
