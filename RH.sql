@@ -9,7 +9,7 @@ create table user(
     email varchar(200) not null,
     name varchar(100) not null,
     birthday date not null,
-	permission enum('office', 'customer', 'employeer') not null
+	#permission enum('office', 'customer', 'employeer') not null
 );
 
 create table employeer(
