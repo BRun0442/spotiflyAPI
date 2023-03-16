@@ -10,7 +10,7 @@ async function signUp(name, email, password, birthday)
     const sql = `INSERT into user(name, email, password, birthday) 
                   values(?, ?, ?, ?)`;
       
-    await connection.query(sql, [data])
+    await connection.query(sql, data)
     connection.end();
   } 
   catch (error) {
