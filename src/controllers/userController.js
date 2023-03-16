@@ -3,11 +3,22 @@ import { login, signUp } from "../services/userService.js";
 
 const routes = express.Router();
 
+
+
 routes.post('/signUp', async (req, res) => {
   const { name, email, password, birthday } = req.body;
 
+  if(!name || !email || !password || !birthday)
+  {
+    return res.status(404).json({msg: 'Insira todos os dados!'})
+  }
 
+  signUp(name, email, password, birthday)
+
+  return res.status(201).json({msg: 'Usuário criado com sucesso!'})
 })
+
+
 
 routes.post('/login', async (req, res) => {
   const { email, password } = req.body;
@@ -29,12 +40,10 @@ routes.post('/login', async (req, res) => {
     }
 
   return res.status(200).json({
-    msg: 'Usuário logado com sucesso',
-    userName: user.nickname,
-    userId: user.id
+    msg: 'Usuário logado com sucesso'
+    // userName: user.nickname,
+    // userId: user.id
   })
 })
-
-routes.post('/cadastro')
 
 export default routes;
