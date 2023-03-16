@@ -13,9 +13,16 @@ routes.post('/signUp', async (req, res) => {
     return res.status(404).json({msg: 'Insira todos os dados!'})
   }
 
-  signUp(name, email, password, birthday)
+  try {
+    await signUp(name, email, password, birthday)
+    
+    return res.status(201).json({msg: 'Usuário criado com sucesso!'})
+  } 
+  catch (error) {
+    console.log(error)
+    return res.status(400).json({msg: 'Erro ao criar usuário'})
+  }
 
-  return res.status(201).json({msg: 'Usuário criado com sucesso!'})
 })
 
 
