@@ -1,5 +1,17 @@
 import database from '../database/connection.js';
 
+async function verifyIfAccountExists(email)
+{
+  const connection = await database.connection();
+
+  try {
+    
+  } catch (error) {
+    connection.end()
+    console.log(error);
+  }
+}
+
 async function signUp(name, email, password, birthday)
 {
   const connection = await database.connection();
