@@ -6,7 +6,7 @@ use RH;
 create table user(
 	id int primary key auto_increment,
     password varchar(25) not null,
-    email varchar(200) not null,
+    email varchar(200) not null unique,
     name varchar(100) not null,
     birthday date not null,
 	#permission enum('office', 'customer', 'employeer') not null

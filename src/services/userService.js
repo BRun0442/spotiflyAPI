@@ -6,11 +6,15 @@ async function signUp(name, email, password, birthday)
   
   try {
     const data = [name, email, password, birthday]
+
     const sql = `INSERT into user(name, email, password, birthday) 
-                    values(?, ?, ?, ?)`;
-    
-    connection.query(sql, [data])
-  } catch (error) {
+                  values(?, ?, ?, ?)`;
+      
+    await connection.query(sql, [data])
+    connection.end();
+  } 
+  catch (error) {
+    connection.end();
     console.log(error)
   }
 }
@@ -24,9 +28,10 @@ async function login(email)
     const userData = await connection.query(sql, [email]);
     connection.end();
   
-    //Index 0 to prevent conflicts
     return userData[0];
-  } catch (error) {
+  } 
+  catch (error) {
+    connection.end();
     console.log(error);
   }
 }
